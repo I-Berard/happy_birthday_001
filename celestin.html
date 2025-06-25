@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Celestin!</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .card-container {
+            perspective: 1000px;
+            width: 400px;
+            height: 500px;
+            position: relative;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            cursor: pointer;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-front {
+            background: url('https://images.unsplash.com/photo-1601049541289-80b9762c5b3f') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-front h1 {
+            font-size: 2.5em;
+            text-align: center;
+            animation: glow 2s ease-in-out infinite alternate;
+            margin: 0;
+        }
+
+        .card-front p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: transparent;
+            color: white;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease, border-color 0.5s ease, filter 0.5s ease, box-shadow 0.3s ease;
+            filter: hue-rotate(0deg);
+        }
+
+        .card-front p:hover {
+            transform: scale(1.1);
+            border-color: rgba(255, 255, 255, 0.8);
+            filter: hue-rotate(90deg);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+
+        .card-back {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .card-back h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #ff6b6b;
+            transition: transform 0.5s ease;
+        }
+
+        .card-back p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 1s forwards 0.5s;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+            }
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffeb3b;
+            border-radius: 50%;
+            animation: fall 3s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .confetti:nth-child(2) { left: 10%; animation-delay: 0.5s; background: #ff6b6b; }
+        .confetti:nth-child(3) { left: 20%; animation-delay: 1s; background: #4ecdc4; }
+        .confetti:nth-child(4) { left: 30%; animation-delay: 1.5s; background: #45b649; }
+        .confetti:nth-child(5) { left: 40%; animation-delay: 2s; background: #96c93d; }
+        .confetti:nth-child(6) { left: 50%; animation-delay: 0.2s; background: #ffeb3b; }
+        .confetti:nth-child(7) { left: 60%; animation-delay: 0.7s; background: #ff6b6b; }
+        .confetti:nth-child(8) { left: 70%; animation-delay: 1.2s; background: #4ecdc4; }
+        .confetti:nth-child(9) { left: 80%; animation-delay: 1.7s; background: #45b649; }
+        .confetti:nth-child(10) { left: 90%; animation-delay: 2.2s; background: #96c93d; }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">
+            <div class="card-front">
+                <h1>Happy Birthday, Instructor Celestin!</h1>
+                <p>Click Here</p>
+            </div>
+            <div class="card-back">
+                <h2>Celebrate Big!</h2>
+                <p>Wishing you a day full of joy, laughter, and unforgettable moments. Here's to an amazing year ahead!</p><p>From CyberKnights</p>
+            </div>
+        </div>
+    </div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <script>
+        const card = document.querySelector('.card');
+        card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+        });
+    </script>
+</body>
+</html>
